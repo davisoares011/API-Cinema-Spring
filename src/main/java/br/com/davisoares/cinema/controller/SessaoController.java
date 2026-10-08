@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/sessoes") // A URL será http://localhost:8080/sessoes
+@RequestMapping("/sessoes")
 public class SessaoController {
 
     @Autowired

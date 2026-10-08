@@ -5,21 +5,24 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
-@Entity // Isso avisa ao Spring que essa classe vai virar uma tabela no banco de dados
+@Entity
 public class Filme {
 
-    @Id // Diz que este é o identificador único (a chave primária)
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // O banco gera o ID automaticamente (1, 2, 3...)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @jakarta.validation.constraints.NotBlank(message = "O título do filme é obrigatório")
     private String titulo;
-    private int duracaoEmMinutos;
-    private String genero;
 
-    // Construtor vazio exigido pelo banco de dados
+    @jakarta.validation.constraints.Positive(message = "A duração deve ser maior que zero")
+    private int duracaoEmMinutos;
+
+    @jakarta.validation.constraints.NotBlank(message = "O género do filme é obrigatório")
+
+    private String genero;
     public Filme() {}
 
-    // Getters e Setters (São os métodos que permitem ler e gravar os dados)
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 

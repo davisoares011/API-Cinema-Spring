@@ -15,16 +15,14 @@ public class Sessao {
     private Long id;
 
     private String sala;
-    private String horario; // Ex: "20:00" ou "15/10/2026 20:00"
+    private String horario;
 
-    // Aqui acontece a mágica do relacionamento!
     @ManyToOne
-    @JoinColumn(name = "filme_id") // Cria uma coluna na tabela para guardar o ID do filme
+    @JoinColumn(name = "filme_id")
     private Filme filme;
 
     public Sessao() {}
 
-    // Getters e Setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
